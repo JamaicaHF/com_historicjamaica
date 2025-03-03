@@ -1,0 +1,58 @@
+#overlay
+{
+	background-color: #000;
+    opacity: .5;
+    filter: alpha(opacity=70);
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 450px;
+    height: 40px;
+}
+#InfoWindow
+{
+    width: 450px;
+    height: 40px;
+    left: 20px;
+    top: 20px;
+	background:#FFF4EA;
+    position:absolute;
+    z-index: 999999;
+    border-radius:8px;
+    border:13px;
+    box-shadow:1px 2px 5px #676767;
+}
+#title
+{
+	font:bold 16px sans-serif;
+    padding-Top: 6px;
+    padding-Bottom: 6px;
+}
+#backImgF2
+{
+	position:absolute;
+    top:4px;
+    left:4px;
+    cursor:pointer;
+}
+#infoBlock 
+{
+	font:25px sans-serif;
+    border-style:solid;
+    background-image:none;
+    background-color:#FFF4EA;
+}
+.IndentedBlock 
+{
+	margin:4px 14px;
+}
+.groupBlock 
+{
+	margin:4px 14px;border-style:solid;border-width:2px;
+}
+.information 
+{
+	font:bold 13px sans-serif;
+    height: 1px;
+}

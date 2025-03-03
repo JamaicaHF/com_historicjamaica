@@ -1,0 +1,72 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="components/com_historicjamaica/personFamily/personFamily.css" />
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/wz_jsgraphics.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/helperMethods.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/infoWindow/infoWindow.js"></script>
+	<script type="text/javascript" src="components/com_historicjamaica/personFamily/personInfo.js"></script>
+	<script type="text/javascript" src="components/com_historicjamaica/personFamily/personFamily.js"></script>
+</head>
+<body onload ='loadPersonFamily("historicJHSite", "PersonID", "PreviousScreen", "RecordText")'>
+<form name="fori" class="bodyclass" action="#">
+    <div id="Canvas" style="position:relative;height:5px;width:5px;"></div>
+	    <img id="backf2" src="historicJHSite/images/back_f2.png" alt="back img" style="margin-top:-5px;cursor:pointer;" onclick='javascript:previousScreen()'/>
+	                     
+    <fieldset class="GroupBox" id="childrenGroupBox" STYLE="position:absolute; TOP:180px; LEFT:0px">
+        <legend>Children</legend>
+        <label class="label" id="child1" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child2" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child3" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child4" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child5" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child6" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child7" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child8" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child9" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child10" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child11" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child12" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child13" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child14" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child15" onclick="groupBoxClicked"></label><br/>
+        <label class="label" id="child16" onclick="groupBoxClicked"></label><br/>
+    </fieldset>
+    <fieldset class="GroupBox" id="personGroupBox" STYLE="position:absolute; TOP:70px; LEFT:330px">
+        <legend>Person</legend>
+        <label class="label" id="personName"> </label><br/>
+        <label class="label" id="personBorn"> </label>
+        <br/>
+    </fieldset>
+    <fieldset class="GroupBox" id="spouseGroupBox" STYLE="position:absolute; TOP:330px; LEFT:330px">
+        <legend>Spouse</legend>
+        <label class="label" id="spouseName"> </label><br/>
+        <label class="label" id="spouseBorn"> </label>
+        <br/>
+    </fieldset>
+    <fieldset class="GroupBox" id="personFatherGroupBox" STYLE="position:absolute; TOP:20px; LEFT:660px">
+        <legend>Person Father</legend>
+        <label class="label" id="personFatherName"> </label><br/>
+        <label class="label" id="personFatherBorn"> </label>
+        <br/>
+    </fieldset>
+    <fieldset class="GroupBox" id="personMotherGroupBox" STYLE="position:absolute; TOP:120px; LEFT:660px">
+        <legend>Person Mother</legend>
+        <label class="label" id="personMotherName"> </label><br/>
+        <label class="label" id="personMotherBorn"> </label>
+        <br/>
+    </fieldset>
+    <fieldset class="GroupBox" id="spouseFatherGroupBox" STYLE="position:absolute; TOP:280px; LEFT:660px">
+        <legend>Spouse Father</legend>
+        <label class="label" id="spouseFatherName"> </label><br/>
+        <label class="label" id="spouseFatherBorn"> </label>
+        <br/>
+    </fieldset>
+    <fieldset class="GroupBox" id="spouseMotherGroupBox" STYLE="position:absolute; TOP:380px; LEFT:660px">
+        <legend>Spouse Mother</legend>
+        <label class="label" id="spouseMotherName"> </label><br/>
+        <label class="label" id="spouseMotherBorn"> </label>
+        <br/>
+    </fieldset>
+</form>
+</body>
+</html>

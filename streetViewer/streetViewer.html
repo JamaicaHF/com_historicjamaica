@@ -1,0 +1,20 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="components/com_historicjamaica/streetViewer/streetViewer.css" />
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/wz_jsgraphics.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/helperMethods.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/infoWindow/infoWindow.js"></script>
+	<script type="text/javascript" src="components/com_historicjamaica/streetViewer/buildingInfo.js"></script>
+	<script type="text/javascript" src="components/com_historicjamaica/streetViewer/streetViewer.js"></script>
+</head>
+<body onload ='loadStreetViewer("historicJHSite","modernRoadID")'>
+<form id="streetForm" name="fori" class="bodyclass" style="height:405px;" action="#">
+    <div id="Canvas" ></div>
+    <div>
+        <img src="historicJHSite/images/back_f2.png" alt="back img" style="margin-top:-5px;cursor:pointer;" onclick='javascript:previousScreen()'/>
+        <div align="center" style="font-size:26px;margin-top: -30px">title</div>
+        <div align="right" style="background:#FFCC99;font-size:13px;margin-top: -30px">For Building Photos, Click Highlighted Street Num</div>
+    </div>
+</form>
+</body>
+</html>

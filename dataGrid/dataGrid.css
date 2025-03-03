@@ -1,0 +1,237 @@
+table.tablesorter 
+{
+	font-family:arial;
+	margin-bottom: 0px;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th 
+{
+	background-color: #8dbdd8;
+	border: 1px solid #FFF;
+	font-size: 8pt;
+}
+table.tablesorter tbody td
+{
+	font-size: 12pt;
+	color: #3D3D3D;
+    height: 20px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td 
+{
+	font-size: 12px;
+	background-color:#ECECEC;
+}
+table.tablesorter tbody tr.even td 
+{
+	font-size: 12px;
+	background-color:#FFFFFF;
+}
+table.tablesorter tbody tr.mouseover td 
+{
+	font-size: 12px;
+	background-color:#aabbcc;
+}
+table.tablesorter thead tr .header 
+{
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	color: #000000;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp 
+{
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown 
+{
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp 
+{
+    background-color: #8dbdd8;
+}
+.whitespace 
+{
+	white-space: nowrap;
+}
+.tableNavigation
+{
+}
+.tablesorter 
+{
+    margin:0px;
+    padding:0px;
+    font-family: tahoma, verdana, arial, sans;
+    font-size: 12px;
+    width: 100%;
+    border: 2px solid #000000;
+    styles: #sidebar1{display:none;}
+}
+.grid-navigation-block
+{
+	width:100%;
+}
+.grid-body
+{
+    overflow-x: auto;
+    overflow-y: hidden;
+    height:375px;
+}
+.grid-column-sorted-asc
+{
+    width: 8px;
+    height: 10px;
+    background-image: url(img/down.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.grid-column-sorted-desc
+{
+    width: 8px;
+    height: 10px;
+    background-image: url(img/up.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.grid-column-title
+{
+    background-color: #FFFFFF;
+}
+.grid-column-title-cell
+{
+}
+.grid-column-title-caption-sortable
+{
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #e9e9e9;
+    border-bottom: 1px dotted #e9e9e9;
+}
+.grid-column-title-caption-not-sortable
+{
+    font-size: 11px;
+    font-weight: bold;
+    color: #e9e9e9;
+}
+.grid-backimg
+{
+	padding-bottom: 10px;
+}
+.grid-recordstext
+{
+    font-size: 14px; 
+    padding-left:5px;
+}
+.grid-navigation
+{
+	width:100%; 
+	margin:0px; 
+    padding: 2px;
+    width: 100%;
+    font-size: 11px;
+}
+.grid-navigation-item
+{
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.grid-navigation-page-item
+{
+    color: #000000;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+.grid-navigation-item-disabled
+{
+    color: #dedede;
+    text-decoration: none;
+    font-weight: bold;
+}
+.grid-navigation-dots
+{
+}
+.grid-navigation-item-selected
+{
+    color: black;
+    width: 38px;
+    background-color: #99cc99;
+    border: 1px solid #000000;
+    padding: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.grid-navigation-item-selectable
+{
+    color: black;
+    width: 38px;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    padding: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.grid-row-odd
+{
+    height: 50px;
+    cursor: pointer;
+    background-color: #ECECEC;
+}
+.grid-row-cell
+{
+    padding: 3px;
+}
+.grid-row-even
+{
+    height: 50px;
+    cursor: pointer;
+    background-color: #000000;
+}
+.grid-row-mouseover
+{
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.grid-row-selected
+{
+    cursor: pointer;
+    color: #000000;
+    background-color: #ffff66;
+}
+.grid-custom-tab
+{
+    background-color: #ececec;
+    padding: 3px;
+    border-top: none;
+}
+.grid-no-javascript
+{
+    font-family: tahoma, verdana, arial, sans;
+    font-size: 13px;
+    font-weight: bold;
+    color: #c40000;
+}
+.grid-link
+{
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #666666;
+    border-bottom: 1px dotted #666666;
+}
+.grid-select-show-records-on-page
+{
+    font-size: 11px;
+}

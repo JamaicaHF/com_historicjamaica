@@ -1,0 +1,418 @@
+body 
+{
+	font: 12px verdana, arial, helvetica, geneva, sans-serif;
+}
+.photoCanvas
+{
+  position: relative;
+  background-color: #F9F6F2;
+}
+#photoForm
+{
+	width: 1120px;
+}
+.imgText
+{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 20px;
+  color: #cc0066;
+  font-weight: bold;
+}
+.inner
+{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 20px;
+  color: #cc0066;
+  font-weight: bold;
+}
+#textmessage
+{
+	position:absolute;
+	top:20px; 
+	left:240px;
+}
+#slideimage1
+{
+	position:absolute;
+	top:20px; 
+	left:240px;
+}
+#slideimage2
+{
+	position:absolute;
+	top:300px; 
+	left:240px;
+}
+#slideimage3
+{
+	position:absolute;
+	top:20px; 
+	left:240px;
+}
+#slideimage4
+{
+	position:absolute;
+	top:300px; 
+	left:240px;
+}
+#slides1
+{
+	float: left;
+}
+#backf2
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    cursor:pointer;
+}
+#prevLink
+{
+    margin-top:-17px;
+	margin-left:5px;
+    cursor:pointer;
+}
+#nextLink
+{
+    margin-top:-17px;
+    cursor:pointer;
+}
+.photoName
+{
+    cursor:pointer;
+}
+#photoSidebar
+{
+    position:absolute;
+    width: 225px; 
+    left: 3px;
+	top: 20px;
+}
+#photoTitle
+{
+    font-family: Andale Mono,Arial,Helvetica;
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.photoText
+{
+    font-family: Andale Mono,Arial,Helvetica;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 100;
+}
+#ImgPlus
+{
+    cursor:pointer;
+    height:26px;
+    position:absolute;
+    top: 15px;
+    left: 170px;
+}
+#ImgMinus
+{
+    cursor:pointer;
+    height:26px;
+    position:absolute;
+    top: 15px;
+    left: 194px;
+}
+#imgText 
+{
+	padding: 10px 0 0 0px;
+	float: left;
+	width: 200px;
+	height: 366px;
+    cursor:pointer;
+}
+.xxitem
+{
+    cursor: default;
+    text-decoration: none;
+}
+#occupantTable
+{
+  position: absolute;
+  top: 20px;
+  left: 516px;
+}
+#textBox1
+{
+  position: absolute;
+  top: 17px;
+  left: 1000px;
+  resize: none;
+}
+#textHeader
+{
+  font-family: Arial;
+  position: absolute; 
+  left: 0px;
+  top: 2px;
+  background-color: #331a00;
+  border: solid 2px #331a00;
+  font-size: 12pt;
+  color: #F9F6F2;
+  height: 27px;
+  resize: none;
+  width: 150px;
+}
+#areaForText
+{
+  font-family: Arial;
+  position: absolute; 
+  left: 0px;
+  top: 26px;
+  border:none;
+  width: 150px;
+  resize: none;
+  font-size: 10pt;
+  border: solid 2px black;
+  line-height: 20px;
+  height: 500px;
+}
+table.tablesorter 
+{
+	font-family:arial;
+	margin-bottom: 0px;
+	font-size: 9pt;
+	width: 100%;
+	text-align: left;
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th 
+{
+	background-color: #8dbdd8;
+	border: 1px solid #FFF;
+	font-size: 9pt;
+}
+table.tablesorter tbody td
+{
+	font-size: 9pt;
+	color: #3D3D3D;
+    height: 20px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td 
+{
+	font-size: 9px;
+	background-color:#ECECEC;
+}
+table.tablesorter tbody tr.even td 
+{
+	font-size: 9px;
+	background-color:#FFFFFF;
+}
+table.tablesorter tbody tr.mouseover td 
+{
+	font-size: 9px;
+	background-color:#aabbcc;
+}
+table.tablesorter thead tr .header 
+{
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	color: #000000;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp 
+{
+	background-image: url(asc.gif);
+}
+table.tablesorter thead tr .headerSortDown 
+{
+	background-image: url(desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp 
+{
+    background-color: #8dbdd8;
+}
+.whitespace 
+{
+	white-space: nowrap;
+	font-size: 9pt;
+}
+.tableNavigation
+{
+}
+.tablesorter 
+{
+    margin:0px;
+    padding:0px;
+    font-family: tahoma, verdana, arial, sans;
+    font-size: 9px;
+    width: 100%;
+    border: 2px solid #000000;
+}
+.grid-navigation-block
+{
+	width:100%;
+}
+.grid-body
+{
+    overflow-x: auto;
+    overflow-y: hidden;
+    height:375px;
+    height:100%;
+	white-space:nowrap;
+}
+.grid-column-sorted-asc
+{
+    width: 8px;
+    height: 10px;
+    background-image: url(img/down.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.grid-column-sorted-desc
+{
+    width: 8px;
+    height: 10px;
+    background-image: url(img/up.gif);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.grid-column-title
+{
+    background-color: #FFFFFF;
+}
+.grid-column-title-cell
+{
+}
+.grid-column-title-caption-sortable
+{
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #e9e9e9;
+    border-bottom: 1px dotted #e9e9e9;
+}
+.grid-column-title-caption-not-sortable
+{
+    font-size: 11px;
+    font-weight: bold;
+    color: #e9e9e9;
+}
+.grid-backimg
+{
+	padding-bottom: 10px;
+}
+.grid-recordstext
+{
+    font-size: 14px; 
+    padding-left:5px;
+}
+.grid-navigation
+{
+	width:100%; 
+	margin:0px; 
+    padding: 2px;
+    width: 100%;
+    font-size: 11px;
+}
+.grid-navigation-item
+{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.grid-navigation-page-item
+{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+.grid-navigation-item-disabled
+{
+    color: #dedede;
+    text-decoration: none;
+    font-weight: bold;
+}
+.grid-navigation-dots
+{
+}
+.grid-navigation-item-selected
+{
+    color: black;
+    width: 38px;
+    background-color: #99cc99;
+    border: 1px solid #000000;
+    padding: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.grid-navigation-item-selectable
+{
+    color: black;
+    width: 38px;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    padding: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.grid-row-odd
+{
+    height: 50px;
+    cursor: pointer;
+    background-color: #ECECEC;
+}
+.grid-row-cell
+{
+    padding: 3px;
+}
+.grid-row-even
+{
+    height: 50px;
+    cursor: pointer;
+    background-color: #000000;
+}
+.grid-row-mouseover
+{
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+.grid-row-selected
+{
+    cursor: pointer;
+    color: #000000;
+    background-color: #ffff66;
+}
+.grid-custom-tab
+{
+    background-color: #ececec;
+    padding: 3px;
+    border-top: none;
+}
+.grid-no-javascript
+{
+    font-family: tahoma, verdana, arial, sans;
+    font-size: 13px;
+    font-weight: bold;
+    color: #c40000;
+}
+.grid-link
+{
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #666666;
+    border-bottom: 1px dotted #666666;
+}
+.grid-select-show-records-on-page
+{
+    font-size: 11px;
+}

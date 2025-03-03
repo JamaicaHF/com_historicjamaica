@@ -1,0 +1,82 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="components/com_historicjamaica/libraries/spryMap/sprtMap.css"/> 
+  <link type="text/css" rel="stylesheet" href="components/com_historicjamaica/photoViewer/photoViewer.css" />
+  <script type="text/javascript" src="components/dom-to-image-master/src/dom-to-image.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/photoViewer/photoViewer.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/photoViewer/photoMenu.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/photoViewer/occupantGrid.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/libraries/helperMethods.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/libraries/spryMap/spryMap-2.js"></script> 
+  <script type="text/javascript" src="components/com_historicjamaica/libraries/infoWindow/infoWindow.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/photoViewer/schoolInfo.js"></script>
+  <script type="text/javascript" src="components/com_historicjamaica/photoViewer/censusInfo.js"></script>
+</head>
+<body class="photoCanvas" onload='loadImages("historicJHSite", "returnAction", "ReturnID", "photos", "infoTitle", "year", "page")'>
+<form id="photoForm" action='#'>
+    <div id="photoSidebar" style = "display: none">
+        <div class="moduletable">
+            <h3>
+    	        <img id="backf2" style = "background-color: transparent" src="historicJHSite/images/back_f2.png" onclick='javascript:previousScreen()'/>
+              <label id="titleLabel"></label>
+  	    	    <input type="button" id="prevLink" value="&laquo; Prev" />
+    	        <input type="button" id="nextLink" value="Next &raquo;" />
+	            <img id="ImgPlus" src="images/increase.png" onclick='javascript:Increase()'/>
+	            <img id="ImgMinus" src="images/decrease.png" onclick='javascript:Decrease()'/>
+            </h3>
+            <ul id="info" class="menu">
+            </ul>
+        </div>
+    </div>
+    <div id="textmessage" style = "display: none">
+    </div>
+    <div id="slideimage1" class="content"> 
+        <img id="slides1"  class="slides1" alt=""/>
+    		<tn class=imgText id="ThenNow1"></tn>
+    </div>
+    <div id="slideimage2" class="content"> 
+        <img id="slides2"  class="slides2" alt=""/>
+    		<tn class=imgText id="ThenNow2"></tn>
+    </div>
+    <div id="slideimage3" class="content"> 
+        <img id="slides3"  class="slides3" alt=""/>
+     		<tn class=imgText id="ThenNow3"></tn>
+    </div>
+    <div id="slideimage4" class="content"> 
+        <img id="slides4"  class="slides4" alt=""/>
+      	<tn class=imgText id="ThenNow4"></tn>
+    </div>
+    <div id="occupantTable">
+        <table id=navigation style="background-color:transparent;" class="grid-navigation" cellspacing="0" cellpadding="0">
+            <tr>
+                <td id="showingRecords" style="font-size: 14px; padding-left:5px;"
+                    class="grid-recordstext" nowrap="nowrap">
+                </td>
+                <td id="nextpreviousarrows" class="grid-navigation-block" style="width:100%;" align="center">
+                    <a onclick="prevPage()"
+                       class="grid-navigation-item" 
+					   title="Previous Page" 
+                       onmouseover="status='';return true">&laquo;</a>
+                    <a onclick="nextPage()"
+                       class="grid-navigation-item" 
+                       title="Next Page" 
+                       onmouseover="status='';return true">&raquo;</a>
+				</td>
+            </tr>
+        </table>
+        <div class="grid-body" id="gridId" style="height:440px;"> 
+            <TABLE  id="dataTable" class="tablesorter">
+                <thead  id="tbl_head"></thead> 
+                <tbody  id="tbl_bdy"></tbody>
+            </TABLE>
+        </div>
+        <div class="grid-body" id="gridIdRemaining" style="height:10px;width:100%;"> 
+        </div>
+    </div>
+	<div id=textBox1>
+    	<textarea readonly id="textHeader" rows="1" cols="10"> Notes</textarea>
+    	<textarea readonly id="areaForText" border="none" name="message"></textarea>
+    </div>
+</form>
+</body>
+</html>

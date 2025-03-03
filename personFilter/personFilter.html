@@ -1,0 +1,43 @@
+<html>
+<head>
+    <link rel="stylesheet" href="components/com_historicjamaica/personFilter/personFilter.css" type="text/css"/>
+    <script type="text/javascript" src="components/com_historicjamaica/personFilter/personFilter.js"></script>
+</head>
+<body onload ='loadPersonFilter("SelectedPersonOption","TableName")'>
+<form style="height:482px;" action='#'>
+    <div id="PersonFilterTable" class="selectByName">
+	    <div>Search by Name</div></br>
+        <label for="LastName" class="filterLabel">LastName:</label>
+   	    <input type="text" id=LastName class="filterBlock" maxlength="20" name="LastName" autofocus value="PersonLastName" /></br></br>
+	    <label for="FirstName" class="filterLabel">FirstName:</label>
+	    <input type="text" id=FirstName class="filterBlock" maxlength="20" name="FirstName" value="PersonFirstName" /></br></br>
+	    <label for="MiddleName" class="filterLabel">MiddleName:</label>
+	    <input type="text" id=MiddleName class="filterBlock" maxlength="20" name="MiddleName" value="PersonMiddleName" /></br></br>
+	    <label for="Prefix" class="filterLabel">Prefix:</label>
+	    <input type="text" id=Prefix class="filterBlock" maxlength="3" name="Prefix" value="PersonPrefix" /></br></br>
+	    <label for="Suffix" class="filterLabel">Suffix:</label>
+	    <input type="text" id=Suffix class="filterBlock" maxlength="3" name="Suffix" value="PersonSuffix" /></br></br>
+
+	    <input type="button" class="filterButton" id="last" onclick='javascript:gotoPersonDatagrid("CallbackURL","last")' value="Last Starting With" /></br></br>
+	    <input type="button" class="filterButton" id="partial" onclick='javascript:gotoPersonDatagrid("CallbackURL","partial")' value="  Partial Name  " /></br></br>
+	    <input type="button" class="filterButton" id="similar" onclick='javascript:gotoPersonDatagrid("CallbackURL","similar")' value="  Similar Name  " /></br></br>
+      <div id="UserText" class="textBox" style="position:absolute; top:20px; left:400px">
+                 Search by Name allows you to use different techniques to find a person or family in the database. <br/><br/>
+                 
+                 "Last Starting With" will show a list of all people whose last name starts with the characters input. <br/><br/>
+                 
+                 "partial Name" allows you to enter the part of the name you know.  For example, if you know only the first name,
+                 all people in the database whose first name match the name typed will become part of the result list.<br/><br/>
+                 
+                 "Similar Names" will try to look for people whose names are similar to the names entered.<br/><br/>
+                 
+                 "Last Name" will show women whose married or maiden name match the name entered.<br/><br/>
+                 
+                 We do not pretend to know all people who ever lived in Jamaica.  We have entered all the vital records
+                 in our town records and tried to identify the people who are shown in our photo collection, but any genealogical  
+                 information is not guaranteed to be correct, but only the best information available at the time.
+        </div>
+    </div>
+</form>
+</body>
+</html>

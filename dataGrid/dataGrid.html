@@ -1,0 +1,47 @@
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="components/com_historicjamaica/dataGrid/dataGrid.css" />
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/helperMethods.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/libraries/infoWindow/infoWindow.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/dataGrid/dataGrid.js"></script>
+    <script type="text/javascript" src="components/com_historicjamaica/dataGrid/vitalRecord.js"></script>
+</head>
+<body onload='loadPersonTable("hostServer","action","searchOption","personOption","LastNameOrID","FirstName","MiddleName","Suffix","Prefix","firstPage")'>
+    <div>
+        <table style="background-color:transparent; width:100%;" class="grid-navigation" cellspacing="0" cellpadding="0">
+            <tr>
+                <td id="showingRecords" style="font-size: 14px; padding-left:5px;"
+                    class="grid-recordstext" nowrap="nowrap">
+                </td>
+                <td class="grid-navigation-block" style="width:100%;"  align="center">
+                    <a onclick="prevPage()"
+                       class="grid-navigation-item" title="Previous Page" 
+                       onmouseover="status='';return true">&laquo;</a>
+                    <a id="pageNumber"></a>
+                    <a onclick="nextPage()"
+                       class="grid-navigation-item" 
+                       title="Next Page" 
+                       onmouseover="status='';return true">&raquo;</a>
+                </td>
+                <td id="RecordsOnPage" class="grid-recordstext" 
+                    style="font-size: 14px;" nowrap="nowrap">
+                    Records on Page:
+                    <select id="recordsOnPage" name="recordsOnPage" onchange="changeRecordsOnPage()">
+                        <option value="">15</option>
+                        <option value="">25</option>
+                        <option value="">50</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="grid-body" id="gridId" style="height:440px;width:100%;white-space:nowrap"> 
+        <TABLE  id="dataTable" class="tablesorter">
+            <thead  id="tbl_head"></thead> 
+            <tbody  id="tbl_bdy"></tbody>
+        </TABLE>
+    </div>
+    <div class="grid-body" id="gridIdRemaining" style="height:10px;width:100%;"> 
+    </div>
+</body>
+</html>

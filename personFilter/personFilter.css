@@ -1,0 +1,43 @@
+.selectByName 
+{ 
+	border: 3px solid #999999; 
+	width:280px; 
+	height:344px; 
+    font: normal 14px helvetica; 
+    color:#444444; 
+    padding:4px
+}
+.filterBlock
+{
+    height: 17px; 
+    color:#444444;
+    position:absolute;
+    left:100px;
+}
+.filterLabel
+{
+    text-align: center;
+	font-size: 14px;
+    padding: 4px; 
+    height: 20px; 
+    width: 200px;
+}
+.filterButton
+{
+	cursor: pointer;
+    font-size: 14px;
+    padding: 3px;
+    width: 160px; 
+    height: 28px; 
+    margin-top: 8px; 
+    position:absolute;
+    left:68px;
+}
+.textBox
+{
+    padding: 6px;
+	font: normal 14px helvetica;
+    height:338px;
+    width:500px;
+    border: 3px solid #999999;
+}
