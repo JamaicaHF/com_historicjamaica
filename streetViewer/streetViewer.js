@@ -97,10 +97,12 @@ function showPage(buildings)
 function drawRoad(g_formHeight) 
 {
     widthOfLane = 60;
-    jg.drawLine(midPoint - widthOfLane, startTop, midPoint - widthOfLane, g_formHeight);
-    jg.drawLine(midPoint - 2, startTop, midPoint - 2, g_formHeight);
-    jg.drawLine(midPoint + 2, startTop, midPoint + 2, g_formHeight);
-    jg.drawLine(midPoint + widthOfLane, startTop, midPoint + widthOfLane, g_formHeight);
+    var roadTop = startTop - 6;
+    var roadBottom = g_formHeight + 6;
+    jg.drawLine(midPoint - widthOfLane, roadTop, midPoint - widthOfLane, roadBottom);
+    jg.drawLine(midPoint - 2, roadTop, midPoint - 2, roadBottom);
+    jg.drawLine(midPoint + 2, roadTop, midPoint + 2, roadBottom);
+    jg.drawLine(midPoint + widthOfLane, roadTop, midPoint + widthOfLane, roadBottom);
 }
 //**********************************************************************************************************************************************
 function drawHouse(top, left, streetAddress, currentOwner, buildingID, buildingName, photosFound) 
@@ -110,7 +112,7 @@ function drawHouse(top, left, streetAddress, currentOwner, buildingID, buildingN
     {
         return;
     }
-	var allowClick = buildingName.length != 0;
+    var allowClick = buildingName.length != 0;
     var buildingStillExists = true;
     if (currentOwner.length == 0)
     {
@@ -121,7 +123,7 @@ function drawHouse(top, left, streetAddress, currentOwner, buildingID, buildingN
     var home = document.createElement('div');
     if (allowClick)
     {
-        home.onclick = ShowBuildingInfo;
+        //home.onclick = ShowBuildingInfo;
         home.style.cursor = "pointer";
     }
     home.id = buildingID;
@@ -137,13 +139,13 @@ function drawHouse(top, left, streetAddress, currentOwner, buildingID, buildingN
     {
         home.appendChild(OwnerAndKnown(2, currentOwner, buildingName));
         streetForm.appendChild(showAddress(top, left + 384, streetAddress, photosFound, buildingStillExists));
-        streetForm.appendChild(houseImage(top, left + 342));
+        streetForm.appendChild(houseImage(buildingID, top, left + 342));
     }
     else
     {
         home.appendChild(OwnerAndKnown(2, currentOwner, buildingName));
         streetForm.appendChild(showAddress(top, left - 80, streetAddress, photosFound, buildingStillExists));
-        streetForm.appendChild(houseImage(top, left - 50));
+        streetForm.appendChild(houseImage(buildingID, top, left - 50));
     }
     streetForm.appendChild(home);
 }
@@ -175,15 +177,17 @@ function showAddress(top, left, streetAddress, photosFound, buildingStillExists)
     return labelStreetNum;
 }
 //**********************************************************************************************************************************************
-function houseImage(top, left)
+function houseImage(buildingID, top, left)
 {
     var img = document.createElement("img");
+    img.id = buildingID
     img.style.position = "absolute";
     img.style.left = left + "px";
     img.style.top = top + 2 + "px";
     img.className = "HouseImg";
     img.src = g_historicJHSite + "/images/House.png";
     img.alt = "images/House.png";
+    img.onclick = ShowBuildingInfo;
     img.style.height = "40px";
     img.style.width = "40px";
     return img;

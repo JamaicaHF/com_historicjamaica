@@ -169,7 +169,8 @@ class sqlDatabasePhoto extends sqlDatabase
 		$returnString .= $this->GetBuildingNames($buildingRow, $buildingId, $buildingName, $count);
 		$returnString .= $this->GetBuildingArticle($buildingRow, $count, $foundNotes2);
 		$returnString .= $this->GetBuildingOccupants($buildingId, $count, $foundNotes2);
-		$returnString .= $this->GetBuildingOwners($BuildingGrandListID, $buildingRow["NotesCurrentOwner"], $count);
+                $queryArray = array();
+		$returnString .= $this->GetBuildingOwners($queryArray, $BuildingGrandListID, $buildingRow["NotesCurrentOwner"], $count);
 
 		
 
@@ -333,7 +334,7 @@ class sqlDatabasePhoto extends sqlDatabase
 		return $returnString;
 	}
     //**********************************************************************************************************************************************
-	function GetBuildingOwners($BuildingGrandListID, $buildingOwnerNotes, &$count)
+	function GetBuildingOwners(&$queryArray, $BuildingGrandListID, $buildingOwnerNotes, &$count)
 	{
     	$returnString = "";
         $this->SelectAllStatement("grandlist", "ID", $BuildingGrandListID);
@@ -348,34 +349,45 @@ class sqlDatabasePhoto extends sqlDatabase
         $this->SelectAllStatement("grandlisthistory", "ID", $BuildingGrandListID);
         $this->OrderBy("HistoryYear desc");
         $queryResult = $this->ExecuteQuery();
-		$numRecords = count($queryResult);
-		if ($numRecords == 0)
-		{
-      		$returnString .= e."*Current Owner";
-          	$count++;
-		}
-		else
-		{
-      		$returnString .= e."*Recent Owners";
-          	$count++;
-		}
-  		$returnString .= e.$grandListName." (Current Owner)";
-   		//$returnString .= $this->buildingNotes($buildingOwnerNotes, $count);
+	$numRecords = count($queryResult);
+	if ($numRecords == 0)
+	{
+            $returnString .= e."*Current Owner";
+            $count++;
+	}
+	else
+	{
+      	    $returnString .= e."*Recent Owners";
+            $count++;
+	}
+  	$returnString .= e.$grandListName." (Current Owner)";
+        $this->AddToArray($queryArray, $grandListName, "Current Owner");
+   	//$returnString .= $this->buildingNotes($buildingOwnerNotes, $count);
        	$count++;
         foreach ($queryResult as $queryElement)
         {
             $HistoryYear = $this->getElement($queryElement, "HistoryYear");
             $historyName1 = $this->getElement($queryElement, "Name1");
             $historyName2 = $this->getElement($queryElement, "Name2");
-			if ($Name1 != $historyName1 || $Name2 != $historyName2)
-			{
-     	    	$grandListName = HJHelper::CombineName1AndName2($historyName1, $historyName2)." (Owner Until ".$HistoryYear.")";
-      		    $returnString .= e.$grandListName;
-           	    $count++;
-			}
-		}
-		return $returnString;
+            if ($Name1 != $historyName1 || $Name2 != $historyName2)
+	    {
+     	    	$grandListName = HJHelper::CombineName1AndName2($historyName1, $historyName2);
+                $note = "Owner Until ".$HistoryYear;
+                $this->AddToArray($queryArray, $grandListName, $note);
+      	        $returnString .= e.$grandListName.' ('.$note.')';
+                $count++;
+	    }
 	}
+	return $returnString;
+    }
+    //**********************************************************************************************************************************************
+    function AddToArray(&$queryArray, $value, $notes)
+    {
+        array(2);
+        $queryElement[0] = $value; 
+        $queryElement[1] = $notes; 
+        $queryArray[] = $queryElement;
+    }
     //**********************************************************************************************************************************************
     function GetPhotoSource($queryElement)
     {

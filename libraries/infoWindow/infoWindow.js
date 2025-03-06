@@ -99,20 +99,20 @@ function AddTwoFieldInfo(tableID, rowNum, info, info2, info3, indentFirstColumn,
     td.appendChild(textnode1);
     var width = td.clientWidth;
     tr.appendChild(td);
-    if (numColumns > 1)
+    if (numColumns > 1 && info2 != "xxxx")
     {
         var td2 = document.createElement('td');
         td2.id = tr.id + "td2";
         var textnode2 = document.createTextNode(info2);
         td2.appendChild(textnode2);
-        td2.style.width = "500px";
+        td2.style.width = "400px";
     	if (highlightColumn2)
 	    {
 	        td2.style.color="#FF0000";
 	    }
         td2.style.fontSize = "14px";    
         td2.style.paddingLeft = "10px";
-        td2.style.paddingRight = "5px";
+        //td2.style.paddingRight = "5px";
         tr.appendChild(td2);
     }
     if (numColumns > 2) {
@@ -120,7 +120,7 @@ function AddTwoFieldInfo(tableID, rowNum, info, info2, info3, indentFirstColumn,
         td3.id = tr.id + "td3";
         var textnode3 = document.createTextNode(info3);
         td3.appendChild(textnode3);
-        td3.style.width = "500px";
+        td3.style.width = "600px";
         td3.style.fontSize = "14px";
         td3.style.paddingLeft = "10px";
         td3.style.paddingRight = "5px";

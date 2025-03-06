@@ -80,6 +80,7 @@ class sqlDatabaseBuildings extends sqlDatabase
     //**********************************************************************************************************************************************
     function addAllBuildingsToResultString($buildingID, $ownerName, $address, $buildingName)
     {
+        $buildingName = $this->GetBuildingName($buildingName);
         if (HJHelper::emptyStr($buildingID))
         {
             $numPhotos = 0;
@@ -112,6 +113,10 @@ class sqlDatabaseBuildings extends sqlDatabase
     //****************************************************************************************************************************
     function CombineName1AndName2($name1, $name2)
     {
+        if (strtolower(trim($name1)) == 'jamaica town of')
+        {
+            return "Town Of Jamaica";
+        }
         if (HJHelper::emptyStr($name2))
         {
             return $name1;
@@ -172,33 +177,56 @@ class sqlDatabaseBuildings extends sqlDatabase
         $returnString = "";
         $buildingRow = $this->GetBuilding($buildingID);
         $countInArray = 0;
-        if (HJHelper::notEmptyStr($buildingRow))
+        require_once(HJ_COMPONENT_PATH."libraries/sqlDatabase/sqlDatabasePhoto.php");
+                     $dbPhoto = new sqlDatabasePhoto();
+        if (HJHelper::arrayLen($buildingRow) != 0)
         {
-            $queryArray=null;
-            $this->AddToArray($queryArray, $buildingRow["BuildingName"], $buildingRow["Notes"]);
+            $queryArray=array();
+            $buildingName = $this->GetBuildingName($buildingRow["BuildingName"]);
+            $this->AddToArray($queryArray, $buildingName, $buildingRow["Notes"]);
+            $this->AddToArray($queryArray, "Owners Since 2004", "xxxx");
             $countInArray++;
             $BuildingGrandListID = $buildingRow["BuildingGrandListID"];
             if ($BuildingGrandListID != 0)
             {
-                $grandlistRow = $this->GetGrandListValue($BuildingGrandListID);
-                if (HJHelper::notEmptyStr($grandlistRow))
-                {
-                    $owner = $this->CombineName1AndName2($grandlistRow["Name1"], $grandlistRow["Name2"]);
-                    $this->AddToArray($queryArray, "Current Owner", x);
-                    $countInArray++;
-                    $this->AddToArray($queryArray, $owner, $buildingRow["NotesCurrentOwner"]);
-                    $countInArray++;
-                }
+                $buildingOwnerNotes = "";
+                $count = 0;
+                $dbPhoto->GetBuildingOwners($queryArray, $BuildingGrandListID, $buildingOwnerNotes, $count);
+                
+                //$grandlistRow = $this->GetGrandListValue($BuildingGrandListID);
+                //if (HJHelper::arrayLen($grandlistRow) != 0)
+                //{
+                //    $owner = $this->CombineName1AndName2($grandlistRow["Name1"], $grandlistRow["Name2"]);
+                //    $this->AddToArray($queryArray, "Current Owner", x);
+                //    $countInArray++;
+                //    $this->AddToArray($queryArray, $owner, $buildingRow["NotesCurrentOwner"]);
+                //    $countInArray++;
+                //}
             }
-            $this->GetOccupants($queryArray, $countInArray, $buildingID);
-            $returnString = $this->SortAndReturnValues($queryArray, $countInArray);
+            $this->GetOccupants($dbPhoto, $queryArray, $countInArray, $buildingID);
+            $returnString = $this->ReturnValues($queryArray, $countInArray);
         }
         return $returnString;
     }
     //**********************************************************************************************************************************************
-    function SortAndReturnValues($queryArray, $numRecords)
+    function GetBuildingName($buildingName)
     {
-        //	$queryArray = HJHelper::array_sort($queryArray, "FullName", $sortDirection);
+        $name = explode(',', $buildingName);
+        if (HJHelper::arrayLen($name) <= 1)
+        {
+            return $buildingName;
+        }
+        $house = '';
+        if (str_contains($name[1], ' House'))
+        {
+            $name[1] = str_replace(" House", '', $name[1]);
+            $house = ' House';
+        }
+        return trim($name[1]).' '.trim($name[0]).$house;
+    }
+    //**********************************************************************************************************************************************
+    function ReturnValues($queryArray, $numRecords)
+    {
         $numRecords = HJHelper::numInArray($queryArray);
         $returnString = e.$numRecords.e;
         for ($i = 0; $i < $numRecords; $i++)
@@ -234,25 +262,30 @@ class sqlDatabaseBuildings extends sqlDatabase
         }
     }
     //**********************************************************************************************************************************************
-    function GetOccupants(&$queryArray, &$countInArray, $buildingID)
+    function GetOccupants(&$dbPhoto, &$queryArray, &$countInArray, $buildingID)
     {
         $this->SelectAllStatement("buildingoccupant", "BuildingID", $buildingID);
         $this->OrderBy("BuildingValueOrder");
         $queryResult =$this->ExecuteQuery();
         if ($queryResult == null)
+        {
             return;
+        }
         $this->AddToArray($queryArray, "Building Occupants", x);
         $countInArray++;
         foreach ($queryResult as $personBuildingRow)
         {
-            $personRow = $this->getPerson($personBuildingRow["PersonID"]);
-            $spouseRow = $this->getPerson($personBuildingRow["SpouseLivedWithID"]);
-            require_once(HJ_COMPONENT_PATH.'libraries/classes/name.php');
-            $name = new HJName;
-            $familyName = $name->familyName($personRow, $spouseRow);
+            $personName = $dbPhoto->getPersonName($personBuildingRow["PersonID"], $showShortenedNames=false);
+            $spouseName = $dbPhoto->getPersonName($personBuildingRow["SpouseLivedWithID"], $showShortenedNames=false);
+            $familyName = ($spouseName == "unknown") ? $personName : $personName.' & '.$spouseName;
+            //$personRow = $this->getPerson($personBuildingRow["PersonID"]);
+            //$spouseRow = $this->getPerson($personBuildingRow["SpouseLivedWithID"]);
+            //require_once(HJ_COMPONENT_PATH.'libraries/classes/name.php');
+            //$name = new HJName;
+            //$familyName = $name->familyName($personRow, $spouseRow);
             if (HJHelper::notEmptyStr($familyName))
             {
-                $familyName.= $this->occupantString();
+                //$familyName.= $this->occupantString();
                 $notes = $personBuildingRow["Notes"];
                 $order = $personBuildingRow["BuildingValueorder"];
                 $this->AddToArray($queryArray, $familyName, $notes);

@@ -58,7 +58,7 @@ function displayBuildingInfo(newTableID,  curValue, numValues)
     CreateTable(newTableID);
     var headerValue = g_tableData[curValue].split(';');
     var rowNum = 1;
-    AddTwoFieldInfo(newTableID, rowNum, headerValue[buildingValue_col], "", false, notesFound);
+    AddTwoFieldInfo(newTableID, rowNum, headerValue[buildingValue_col], headerValue[buildingNotes_col], false, notesFound, 2);
     totalNumRows++;
     curValue++;
     var doneWithThisBlock = false;
@@ -74,7 +74,7 @@ function displayBuildingInfo(newTableID,  curValue, numValues)
             var notes = CheckNotes(value[buildingNotes_col]);
             var info = value[buildingValue_col];
             rowNum++;
-            AddTwoFieldInfo(newTableID, rowNum, info, notes, true, notesFound);
+            AddTwoFieldInfo(newTableID, rowNum, info, notes, true, notesFound, 2);
             curValue++;
         }
     }

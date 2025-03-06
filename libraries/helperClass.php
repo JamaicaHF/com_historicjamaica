@@ -244,23 +244,29 @@ static function getDomElementByTagName()
 //****************************************************************************************************************************
 static function CombineName1AndName2($Name1, $Name2)
 {
+    if (strtolower(trim($Name1)) == 'jamaica town of')
+    {
+        return "Town Of Jamaica";
+    }
     if (strlen($Name2) == 0)
+    {
         return $Name1;
-	$returnString = $Name1;
-	$lastName1 = HJHelper::getLastName($Name1);
-	$lastName2 = HJHelper::getLastName($Name2);
+    }
+    $returnString = $Name1;
+    $lastName1 = HJHelper::getLastName($Name1);
+    $lastName2 = HJHelper::getLastName($Name2);
     if ($lastName1 == $lastName2)
     {
-		$Name2 = str_replace($lastName2,"",$Name2);
-		$Name2 = trim($Name2);
+	$Name2 = str_replace($lastName2,"",$Name2);
+	$Name2 = trim($Name2);
     }
     if (strlen($Name2) != 0)
     {
-	    $firstThreeChars = substr($Name2, 0, 3);
+        $firstThreeChars = substr($Name2, 0, 3);
         if (strtolower($firstThreeChars) != "c/o")
-		{
+	{
             $returnString .= " & \r\n";
-		}
+	}
         $returnString .= " ".$Name2;
     }
     return $returnString;
